@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>测试页面</title>
+<script type="text/javascript" src="jQuery-1.11-min.js"></script>
+<style>
+*{
+	margin: 0;
+	padding: 0;
+}
+.div1{
+	width: 200px;
+	height: 200px;
+	background: #ccc;
+}
+.div2{
+	width: 200px;
+	height: 200px;
+	background: red;
+}
+.div3{
+	width: 200px;
+	height: 200px;
+	background: blue;
+}
+div{
+	float: left;
+	display: none;
+}
+div.on{
+	display: block;
+}
+button.on{
+	background: red;
+}
+</style>
+</head>
+<body>
+	<button class="btn1 on">点击消失</button>
+	<button class="btn2">点击出现</button>
+	<button class="btn3">点击变透明度</button>
+	<button class="btn4">点击变透明度</button>
+	<div class="div1 on"></div>
+	<div class="div2"></div>
+	<div class="div3"></div>
+	<div class="div4"></div>
+<script>
+String.prototype.deentify=function(){
+	var entity={
+		lt:'<',
+		gt:'>',
+		quot:'"'
+	}
+	return function(){
+		return this.replace(/&([^&;]+);/g,function(a,b){
+			var r=entity[b];
+			return typeof r==='string'?r:a;
+		})
+	}
+}();
+document.write('&gt;&lt;'.deentify())
+</script>
+</body>
+</html>
